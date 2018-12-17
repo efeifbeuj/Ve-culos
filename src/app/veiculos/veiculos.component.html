@@ -1,0 +1,20 @@
+<h2>Meus Veiculos</h2>
+<ul class="veiculos">
+  <li *ngFor="let veiculo of veiculos"  
+  [class.selected]= "veiculo === selectedVeiculo"
+  (click)="onSelect(veiculo)">
+  <span class="badge">{{veiculo.id}}</span> {{veiculo.name}}
+  </li>
+</ul>
+
+<div *ngIf="selectedVeiculo">
+
+  <h2>{{selectedVeiculo.name | uppercase}} Details</h2>
+<div><span>id: </span>{{selectedVeiculo.id}}</div>
+<div>
+  <label>name:
+    <input [(ngModel)]="selectedVeiculo.name" placeholder="name">
+  </label>
+</div>
+
+</div>
